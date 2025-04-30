@@ -35,7 +35,13 @@ def load_agent_info():
 
 def load_persona(agent_id):
     path = Path(PERSONAS_DIR) / f"{agent_id}.txt"
-    return path.read_text() if path.exists() else ""
+    if not path.exists():
+        return ""
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="utf-8", errors="replace")
+
 
 def get_prompt_files():
     return [f.stem for f in Path(PROMPTS_DIR).glob("*.txt")]
@@ -201,8 +207,15 @@ def render_persona_tab():
 
     custom_request = st.text_area("Custom Change Request (optional)", placeholder="e.g., Make it sound more inclusive")
 
+    # Initialize OpenAI client
+    from openai import OpenAI
+    api_key = st.session_state.get("OPENAI_API_KEY")
+    if not api_key:
+        st.error("Please enter your OpenAI API key in the Connections tab.")
+        return
+    client = OpenAI(api_key=api_key)
+
     if st.button("Suggest Improvements"):
-        openai.api_key = st.session_state.get("OPENAI_API_KEY")
         system_msg = "You are a marketing and persona refinement expert."
         user_prompt = f"""
         Review the following persona:
@@ -217,7 +230,7 @@ def render_persona_tab():
         2. The rationale for each suggestion
         """
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
@@ -230,7 +243,6 @@ def render_persona_tab():
         st.text_area("Suggestions", feedback, height=300)
 
     if st.button("Generate Optimized Persona"):
-        openai.api_key = st.session_state.get("OPENAI_API_KEY")
         system_msg = "You are a marketing persona optimization expert."
         user_prompt = f"""
         Optimize the following marketing persona based on this user request:
@@ -245,7 +257,7 @@ def render_persona_tab():
         3. Reasoning behind the changes
         """
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
