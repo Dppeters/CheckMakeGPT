@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-04-30T12:46:54.850894",
+    "prompt": "Are you alive?",
+    "error": "API Error: 422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  },
+  {
+    "timestamp": "2025-04-30T12:46:56.015566",
+    "prompt": "Can you see me now?",
+    "error": "API Error: 422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  },
+  {
+    "timestamp": "2025-04-30T12:46:57.185739",
+    "prompt": "Hello?",
+    "error": "API Error: 422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  }
+]

@@ -1,0 +1,10 @@
+=== TEST RUN SUMMARY ===
+Timestamp: 2025-04-29T20:01:25.137484
+Total prompts: 3
+
+Average Scores:
+- CTA: 4.00/5
+- Specificity: 2.92/10
+- Overall: 3.57/10
+
+⚠️ Warning: Overall score below threshold (7/10)

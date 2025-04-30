@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "how much is that ford?",
+    "response": "Mock response to: how much is that ford?",
+    "score": 8.5,
+    "feedback": "Good response but could be more specific"
+  },
+  {
+    "prompt": "blah blah",
+    "response": "Mock response to: blah blah",
+    "score": 8.5,
+    "feedback": "Good response but could be more specific"
+  }
+]
