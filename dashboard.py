@@ -6,12 +6,9 @@ from pathlib import Path
 import os
 import time
 from datetime import datetime
-from dotenv import load_dotenv
 from core.tester import CustomGPTTester
 from core.openai_evaluator import OpenAIScorer
 import openai
-
-load_dotenv()
 
 CONFIG_DIR = "config"
 PROMPTS_DIR = "prompts"
@@ -40,7 +37,6 @@ def load_persona(agent_id):
     path = Path(PERSONAS_DIR) / f"{agent_id}.txt"
     return path.read_text() if path.exists() else ""
 
-# Utilities
 def get_prompt_files():
     return [f.stem for f in Path(PROMPTS_DIR).glob("*.txt")]
 
@@ -53,13 +49,12 @@ def get_criteria_files():
 
 def validate_environment():
     errors = []
-    if not os.getenv("CUSTOMGPT_API_KEY"):
-        errors.append("CustomGPT API key not configured")
-    if not os.getenv("OPENAI_API_KEY"):
-        errors.append("OpenAI API key not configured")
+    if "CUSTOMGPT_API_KEY" not in st.session_state:
+        errors.append("CustomGPT API key not provided")
+    if "OPENAI_API_KEY" not in st.session_state:
+        errors.append("OpenAI API key not provided")
     return errors if errors else None
 
-# Tabs
 def render_prompts_tab():
     st.title("Prompt Management")
     tab1, tab2, tab3 = st.tabs(["Create New", "Edit Existing", "View All"])
@@ -207,7 +202,7 @@ def render_persona_tab():
     custom_request = st.text_area("Custom Change Request (optional)", placeholder="e.g., Make it sound more inclusive")
 
     if st.button("Suggest Improvements"):
-        client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        openai.api_key = st.session_state.get("OPENAI_API_KEY")
         system_msg = "You are a marketing and persona refinement expert."
         user_prompt = f"""
         Review the following persona:
@@ -222,7 +217,7 @@ def render_persona_tab():
         2. The rationale for each suggestion
         """
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
@@ -235,7 +230,7 @@ def render_persona_tab():
         st.text_area("Suggestions", feedback, height=300)
 
     if st.button("Generate Optimized Persona"):
-        client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        openai.api_key = st.session_state.get("OPENAI_API_KEY")
         system_msg = "You are a marketing persona optimization expert."
         user_prompt = f"""
         Optimize the following marketing persona based on this user request:
@@ -250,7 +245,7 @@ def render_persona_tab():
         3. Reasoning behind the changes
         """
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
@@ -277,36 +272,36 @@ def render_agent_tab():
             save_agent_info(agent_id, persona_text, nickname)
             st.success("Agent info and persona saved.")
 
-
 def render_connections_tab():
     st.title("API Keys Only")
     with st.form("api_keys"):
-        customgpt_key = st.text_input("CustomGPT API Key", type="password", value=os.getenv("CUSTOMGPT_API_KEY", ""))
-        openai_key = st.text_input("OpenAI API Key", type="password", value=os.getenv("OPENAI_API_KEY", ""))
+        openai_key = st.text_input("OpenAI API Key", type="password")
+        customgpt_key = st.text_input("CustomGPT API Key", type="password")
+
         if st.form_submit_button("Save Keys"):
-            with open(".env", "w") as f:
-                f.write(f"CUSTOMGPT_API_KEY={customgpt_key}\n")
-                f.write(f"OPENAI_API_KEY={openai_key}\n")
-            st.success("Keys saved. Reloading...")
-            load_dotenv(override=True)
-            st.rerun()
+            if openai_key:
+                st.session_state["OPENAI_API_KEY"] = openai_key
+                openai.api_key = openai_key
+            if customgpt_key:
+                st.session_state["CUSTOMGPT_API_KEY"] = customgpt_key
+            st.success("Keys saved for this session.")
 
 def main():
-    st.set_page_config(layout="wide", page_title="CustomGPT Manager")
+    st.set_page_config(layout="wide", page_title="CheckMakeGPT")
     with st.sidebar:
-        st.title("CustomGPT Manager")
+        st.title("CheckMakeGPT")
         tab = st.radio("Navigation", [
             "📦 Agent",
             "📝 Prompts",
             "⚙️ Evaluation Criteria",
             "▶️ Run Evaluation",
-            "🧠 Persona Optimizer",
+            "🧐 Persona Optimizer",
             "🔐 Connections"
         ])
         st.markdown("---")
         info = load_agent_info()
         st.info(f"Agent: {info.get('nickname') or info.get('agent_id', 'Not set')}")
-        st.caption(f"OpenAI Model: {os.getenv('OPENAI_MODEL', 'Not set')}")
+        st.caption(f"Model: gpt-4-turbo")
 
     if tab == "📝 Prompts":
         render_prompts_tab()
@@ -314,7 +309,7 @@ def main():
         render_evaluation_criteria_tab()
     elif tab == "▶️ Run Evaluation":
         render_run_evaluation_tab()
-    elif tab == "🧠 Persona Optimizer":
+    elif tab == "🧐 Persona Optimizer":
         render_persona_tab()
     elif tab == "📦 Agent":
         render_agent_tab()

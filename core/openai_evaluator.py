@@ -1,12 +1,18 @@
 import json
 import os
+import streamlit as st
 from openai import OpenAI
 from config import config
 
 class OpenAIScorer:
     def __init__(self, criteria: dict):
         self.criteria = criteria
-        self.client = OpenAI(api_key=config.OPENAI_API_KEY)
+
+        api_key = st.session_state.get("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY is missing. Please enter it in the Connections tab.")
+
+        self.client = OpenAI(api_key=api_key)
 
     def evaluate(self, prompt: str, response: str) -> dict:
         evaluation_prompt = f"""
@@ -35,3 +41,5 @@ class OpenAIScorer:
         )
 
         return json.loads(result.choices[0].message.content)
+
+

@@ -2,13 +2,18 @@
 import requests
 from datetime import datetime
 from config import config
+import streamlit as st  # Required to access session state
 
 class CustomGPTTester:
     def __init__(self):
+        api_key = st.session_state.get("CUSTOMGPT_API_KEY")
+        if not api_key:
+            raise ValueError("CUSTOMGPT_API_KEY is missing. Please enter it in the Connections tab.")
+
         self.headers = {
             "accept": "application/json",
             "content-type": "application/json",
-            "authorization": f"Bearer {config.CUSTOMGPT_API_KEY}"  # Changed from CUSTOMGPT_KEY
+            "authorization": f"Bearer {api_key}"
         }
         self.base_url = config.CUSTOMGPT_BASE_URL
         self.project_id = config.CUSTOMGPT_PROJECT_ID
