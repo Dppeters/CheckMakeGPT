@@ -81,7 +81,10 @@ def render_prompts_tab():
         prompt_files = get_prompt_files()
         selected = st.selectbox("Choose set to edit", prompt_files)
         if prompt_files:
-            current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text()
+            try:
+                current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text(encoding="utf-8", errors="replace")
             new_content = st.text_area("Edit prompts", value=current_content, height=300)
             if st.button("Save Changes"):
                 Path(PROMPTS_DIR, f"{selected}.txt").write_text(new_content)
@@ -94,7 +97,10 @@ def render_prompts_tab():
         st.subheader("All Prompt Sets")
         for p in get_prompt_files():
             with st.expander(p):
-                content = Path(PROMPTS_DIR, f"{p}.txt").read_text()
+                try:
+                    content = Path(PROMPTS_DIR, f"{p}.txt").read_text(encoding="utf-8")
+                except UnicodeDecodeError:
+                    content = Path(PROMPTS_DIR, f"{p}.txt").read_text(encoding="utf-8", errors="replace")
                 st.text(content)
 
 def render_evaluation_criteria_tab():
