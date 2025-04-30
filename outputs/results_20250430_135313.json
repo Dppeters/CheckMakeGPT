@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2025-04-30T13:52:57.005401",
+    "prompt": "Are you alive?",
+    "response": "As a virtual sales consultant, I am not alive. I am here to assist you with any questions or guidance you need regarding Custom Pools of Lubbock. How can I help you design your perfect backyard oasis today?",
+    "conversation_id": "9b198a1d-082c-4fed-9928-646707f62bf9",
+    "overall_weighted_score": 7.8,
+    "scores": {
+      "Clarity": 8,
+      "Technical Accuracy": 9,
+      "Persuasiveness": 7,
+      "CTA Effectiveness": 8,
+      "Personalization": 8,
+      "Brand Alignment": 7,
+      "Completeness": 7
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, directly addressing the user's question.",
+      "Technical Accuracy": "The response is factually correct in stating that as a virtual sales consultant, it is not alive.",
+      "Persuasiveness": "The response effectively guides the user towards engaging with the sales consultant for designing a backyard oasis.",
+      "CTA Effectiveness": "The call-to-action to design a backyard oasis is clear and prompts action.",
+      "Personalization": "The response is tailored to the user's potential interest in designing a backyard oasis.",
+      "Brand Alignment": "The response aligns with the brand's focus on Custom Pools of Lubbock.",
+      "Completeness": "The response covers the main aspects by addressing the user's question, providing information, and prompting action."
+    }
+  },
+  {
+    "timestamp": "2025-04-30T13:53:04.701752",
+    "prompt": "Can you see me now?",
+    "response": "As a virtual assistant, I don't have the ability to see or perceive you. However, I'm here to help with any questions or information you need! Let me know how I can assist you.",
+    "conversation_id": "4dd5510b-942d-4fb4-8fd6-63614ea7cc5e",
+    "overall_weighted_score": 8.1,
+    "scores": {
+      "Clarity": 9,
+      "Technical Accuracy": 8,
+      "Persuasiveness": 8,
+      "CTA Effectiveness": 8,
+      "Personalization": 8,
+      "Brand Alignment": 9,
+      "Completeness": 7
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, directly addressing the user's query.",
+      "Technical Accuracy": "The response accurately explains the limitations of a virtual assistant's capabilities.",
+      "Persuasiveness": "The response effectively encourages the user to seek assistance for any questions or information needed.",
+      "CTA Effectiveness": "The call-to-action to let the assistant know how it can help is clear and prompts user engagement.",
+      "Personalization": "While not directly personalized, the response is tailored to the user's query by offering assistance.",
+      "Brand Alignment": "The response aligns well with a professional and helpful brand voice.",
+      "Completeness": "The response covers the main aspects by addressing the user's query and offering assistance, but could provide more context."
+    }
+  },
+  {
+    "timestamp": "2025-04-30T13:53:12.795491",
+    "prompt": "Hello?",
+    "response": "Hello! How can I assist you today? If you're considering a custom pool project or have any questions, feel free to ask. I'm here to help!",
+    "conversation_id": "ade47b73-975c-4dad-81de-ab8c07736547",
+    "overall_weighted_score": 8.3,
+    "scores": {
+      "Clarity": 9,
+      "Technical Accuracy": 8,
+      "Persuasiveness": 8,
+      "CTA Effectiveness": 8,
+      "Personalization": 9,
+      "Brand Alignment": 8,
+      "Completeness": 7
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, providing a welcoming tone.",
+      "Technical Accuracy": "The response is technically accurate and offers assistance for custom pool projects.",
+      "Persuasiveness": "The response is somewhat persuasive in encouraging engagement for custom pool projects.",
+      "CTA Effectiveness": "The call-to-action is effective in inviting questions and engagement.",
+      "Personalization": "The response is personalized by offering assistance tailored to the user's potential pool project needs.",
+      "Brand Alignment": "The response aligns well with a customer service-oriented brand voice.",
+      "Completeness": "While the response covers the main aspects, it could provide more specific details or options for assistance."
+    }
+  }
+]

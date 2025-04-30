@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2025-04-30T12:29:56.228383",
+    "prompt": "how much is that ford?",
+    "error": "422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  },
+  {
+    "timestamp": "2025-04-30T12:29:56.391982",
+    "prompt": "blah blah",
+    "error": "422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  }
+]

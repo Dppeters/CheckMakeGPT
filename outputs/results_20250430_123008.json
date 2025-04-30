@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-04-30T12:30:08.492485",
+    "prompt": "How much does a pool installation cost?",
+    "error": "422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  },
+  {
+    "timestamp": "2025-04-30T12:30:08.658992",
+    "prompt": "What are the benefits of saltwater pools?",
+    "error": "422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  },
+  {
+    "timestamp": "2025-04-30T12:30:08.823976",
+    "prompt": "Can you explain the installation process?",
+    "error": "422 Client Error: Unprocessable Content for url: https://app.customgpt.ai/api/v1/projects/68988/conversations"
+  }
+]

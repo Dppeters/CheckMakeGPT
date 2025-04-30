@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2025-04-30T14:00:37.372849",
+    "prompt": "Are you alive?",
+    "response": "As a virtual sales consultant, I am not alive. I am here to assist you with any questions or guidance you need regarding Custom Pools of Lubbock. How can I help you today?",
+    "conversation_id": "ad2c0ca5-b36d-44b3-a7f5-6532307a5609",
+    "overall_weighted_score": 8.1,
+    "scores": {
+      "Clarity": 8,
+      "Technical Accuracy": 9,
+      "Persuasiveness": 7,
+      "CTA Effectiveness": 7,
+      "Personalization": 8,
+      "Brand Alignment": 8,
+      "Completeness": 8
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, directly addressing the user's query.",
+      "Technical Accuracy": "The response is factually correct in stating that as a virtual sales consultant, it is not alive.",
+      "Persuasiveness": "The response could be more persuasive in engaging the user further.",
+      "CTA Effectiveness": "The call-to-action is present but could be more compelling to drive action.",
+      "Personalization": "The response is somewhat personalized to the user's query, but could be more tailored.",
+      "Brand Alignment": "The response aligns well with the brand voice of a sales consultant for Custom Pools of Lubbock.",
+      "Completeness": "The response covers all necessary aspects but could enhance its completeness by providing more detailed assistance."
+    }
+  },
+  {
+    "timestamp": "2025-04-30T14:00:47.019564",
+    "prompt": "Can you see me now?",
+    "response": "As a virtual assistant, I cannot see or perceive you. How can I assist you today?",
+    "conversation_id": "bb79e379-6664-4299-9539-2b084b0e2bb3",
+    "overall_weighted_score": 8.1,
+    "scores": {
+      "Clarity": 8,
+      "Technical Accuracy": 9,
+      "Persuasiveness": 7,
+      "CTA Effectiveness": 7,
+      "Personalization": 8,
+      "Brand Alignment": 8,
+      "Completeness": 8
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, directly addressing the user's query.",
+      "Technical Accuracy": "The response is technically accurate in stating the limitations of a virtual assistant.",
+      "Persuasiveness": "The response could be slightly more persuasive in encouraging further interaction.",
+      "CTA Effectiveness": "The call-to-action is clear but could be more compelling to drive action.",
+      "Personalization": "The response acknowledges the user's query and offers assistance, showing some level of personalization.",
+      "Brand Alignment": "The response aligns well with the brand's professional and helpful voice.",
+      "Completeness": "The response covers all necessary aspects of the query effectively."
+    }
+  },
+  {
+    "timestamp": "2025-04-30T14:00:54.830876",
+    "prompt": "Hello?",
+    "response": "Hello! How can I assist you today? If you're considering a custom pool project or have any questions, feel free to ask. I'm here to help!",
+    "conversation_id": "00cef652-070b-4de3-8369-c687f080fa9c",
+    "overall_weighted_score": 8.5,
+    "scores": {
+      "Clarity": 9,
+      "Technical Accuracy": 8,
+      "Persuasiveness": 8,
+      "CTA Effectiveness": 8,
+      "Personalization": 9,
+      "Brand Alignment": 8,
+      "Completeness": 8
+    },
+    "feedback": {
+      "Clarity": "The response is clear and easy to understand, providing a welcoming tone.",
+      "Technical Accuracy": "The response is technically accurate and offers assistance for custom pool projects.",
+      "Persuasiveness": "The response is somewhat persuasive in encouraging engagement for custom pool projects.",
+      "CTA Effectiveness": "The call-to-action is effective in inviting questions or discussions about custom pool projects.",
+      "Personalization": "The response is personalized by offering assistance tailored to the user's potential needs.",
+      "Brand Alignment": "The response aligns well with a customer service-oriented brand voice.",
+      "Completeness": "The response covers the main aspects by offering assistance and inviting questions about custom pool projects."
+    }
+  }
+]

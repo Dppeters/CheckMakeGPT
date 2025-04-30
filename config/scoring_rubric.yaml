@@ -1,0 +1,13 @@
+# config/scoring_rubric.yaml
+metrics:
+  - name: "Clarity"
+    weight: 0.3
+    instruction: "Score 1-10: How easily could a homeowner understand this?"
+
+  - name: "Technical Accuracy"
+    weight: 0.4
+    instruction: "Score 1-10: Are pool specifications factually correct?"
+
+  - name: "Persuasiveness"
+    weight: 0.3
+    instruction: "Score 1-10: Does this response make you want to schedule a consultation?"

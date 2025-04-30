@@ -1,0 +1,30 @@
+- description: Response clarity and readability
+  name: Clarity
+  weight: 0.15
+- description: Factual correctness
+  name: Technical Accuracy
+  weight: 0.15
+- description: Ability to drive action
+  name: Persuasiveness
+  weight: 0.2
+- description: Quality of call-to-action
+  name: CTA Effectiveness
+  weight: 0.15
+- description: Tailored to user needs
+  name: Personalization
+  weight: 0.1
+- description: Matches brand voice
+  name: Brand Alignment
+  weight: 0.1
+- description: Covers all aspects
+  name: Completeness
+  weight: 0.05
+- description: Graceful error recovery
+  name: Error Handling
+  weight: 0.05
+- description: Appropriate detail level
+  name: Response Length
+  weight: 0.025
+- description: Response time relevance
+  name: Speed
+  weight: 0.025

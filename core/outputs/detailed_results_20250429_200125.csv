@@ -1,0 +1,24 @@
+timestamp,prompt,response,conversation_id,cta_score,specificity,overall,success
+2025-04-29T20:01:05.487248,How much does it cost to install a new pool?,"Our custom pools start at around $79,000, and every project is tailored to fit your specific needs. Pricing can vary depending on the design, features, and materials you choose. To get a personalized estimate, I recommend scheduling a free consultation with us. You can easily schedule your free consultation here: [Placeholder for Scheduling Link]. 
+
+Let us help you design the perfect backyard oasis!",5f461da7-8093-4687-bb12-26346986433b,3,1.26,2.304,True
+2025-04-29T20:01:15.705570,What's the typical timeline for pool installation?,"The typical timeline for pool installation can vary depending on the specific project, but here is a general breakdown based on my knowledge base:
+
+1. **Curing of the Pool Shell**: After the pool shell is constructed, it needs to cure for about 7 days. During this time, the gunite shell is wetted twice daily to facilitate curing, which accounts for 85% of the eventual concrete cure. 
+
+2. **Rendering and Screed Application**: A period of six weeks is recommended between the curing of the pool shell and the commencement of rendering or screed. This ensures proper drying and watertightness testing before proceeding.
+
+3. **Tile and Coping Installation**: A 6-inch band of frostproof ceramic tile is applied to the top inside edge of the pool, and coping or other finishes are installed. This step is typically completed before plastering.
+
+4. **Deck Layout and Pouring**: The deck is laid out and poured, providing the surrounding area for the pool.
+
+5. **Interior Finish and Pool Start-Up**: The interior finish is applied, and the pool is filled with water. The mechanical equipment is started, and basic pool operation instructions are provided. For the next 7-10 days, tasks like testing and lowering pH, brushing the pool, and backwashing are performed.
+
+6. **Final Steps**: After all finishings have dried and matured, the pool is filled with water at a controlled rate of 0.75 m per day. If the pool is heated, the temperature is raised slowly, at about 1°C per hour.
+
+Overall, the process from casting the pool shell to the start of rendering/screed can take approximately three months, with additional time for finishing and start-up tasks. For more details on the construction process, you can visit the [Construction Process page](https://custompoolsoflubbock.com/construction-process/). 
+
+If you'd like a personalized timeline for your project, I recommend scheduling a free consultation: ""You can easily schedule your free consultation here: [Placeholder for Scheduling Link].""",29096391-b319-4341-9cf2-69f8cbd0e759,5,6.22,5.4879999999999995,True
+2025-04-29T20:01:24.135681,Do you offer financing options?,"Yes, Custom Pools of Lubbock offers financing options to help make your dream pool a reality. For more information about financing, including details about our partnership with Lyon Financial, please visit the Financing Options page on our website. 
+
+If you'd like to discuss your specific needs, I recommend scheduling a free consultation. You can easily schedule your free consultation here: [Placeholder for Scheduling Link].",7af4c18e-f33a-4028-9b8c-6bed0ec64ada,4,1.28,2.912,True
