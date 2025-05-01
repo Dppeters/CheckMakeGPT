@@ -1,0 +1,17 @@
+[33mcommit 5a240f41114e2ccf2891862646938d7f0d417ec5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Dppeters <150176859+Dppeters@users.noreply.github.com>
+Date:   Wed Apr 30 14:57:38 2025 -0400
+
+    Refactored to session-based API keys, updated for OpenAI v1 SDK
+
+[33mcommit 79c784223fbba5cebafd8bea83be99ea85d4c71a[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Dppeters <150176859+Dppeters@users.noreply.github.com>
+Date:   Wed Apr 30 14:21:45 2025 -0400
+
+    Initial commit – setup Streamlit dashboard and project structure
+    
+    Upload working CustomGPT dashboard.py and prompt files
+    
+    Add prefab prompts, evaluation criteria, and readme
+    
+    Prepare project for GitHub and Streamlit Cloud deployment
