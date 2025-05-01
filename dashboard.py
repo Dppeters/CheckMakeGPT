@@ -74,14 +74,10 @@ def render_prompts_tab():
         prompt_files = get_prompt_files()
         selected = st.selectbox("Choose set to edit", prompt_files)
         if prompt_files:
-<<<<<<< HEAD
-            current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text()
-=======
             try:
                 current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 current_content = Path(PROMPTS_DIR, f"{selected}.txt").read_text(encoding="utf-8", errors="replace")
->>>>>>> clean-main
             new_content = st.text_area("Edit prompts", value=current_content, height=300)
             if st.button("Save Changes"):
                 Path(PROMPTS_DIR, f"{selected}.txt").write_text(new_content)
@@ -94,14 +90,10 @@ def render_prompts_tab():
         st.subheader("All Prompt Sets")
         for p in get_prompt_files():
             with st.expander(p):
-<<<<<<< HEAD
-                content = Path(PROMPTS_DIR, f"{p}.txt").read_text()
-=======
                 try:
                     content = Path(PROMPTS_DIR, f"{p}.txt").read_text(encoding="utf-8")
                 except UnicodeDecodeError:
                     content = Path(PROMPTS_DIR, f"{p}.txt").read_text(encoding="utf-8", errors="replace")
->>>>>>> clean-main
                 st.text(content)
 
 def render_evaluation_criteria_tab():
@@ -214,20 +206,13 @@ def render_persona_tab():
 
     custom_request = st.text_area("Custom Change Request (optional)", placeholder="e.g., Make it sound more inclusive")
 
-<<<<<<< HEAD
-    if st.button("Suggest Improvements"):
-        openai.api_key = st.session_state.get("OPENAI_API_KEY")
-=======
-    # Initialize OpenAI client
-    from openai import OpenAI
     api_key = st.session_state.get("OPENAI_API_KEY")
     if not api_key:
         st.error("Please enter your OpenAI API key in the Connections tab.")
         return
-    client = OpenAI(api_key=api_key)
+    openai.api_key = api_key
 
     if st.button("Suggest Improvements"):
->>>>>>> clean-main
         system_msg = "You are a marketing and persona refinement expert."
         user_prompt = f"""
         Review the following persona:
@@ -242,11 +227,7 @@ def render_persona_tab():
         2. The rationale for each suggestion
         """
 
-<<<<<<< HEAD
-        response = openai.ChatCompletion.create(
-=======
-        response = client.chat.completions.create(
->>>>>>> clean-main
+        response = openai.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
@@ -254,15 +235,12 @@ def render_persona_tab():
             ],
             temperature=0.7
         )
+
         feedback = response.choices[0].message.content
         st.subheader("Suggested Edits")
         st.text_area("Suggestions", feedback, height=300)
 
     if st.button("Generate Optimized Persona"):
-<<<<<<< HEAD
-        openai.api_key = st.session_state.get("OPENAI_API_KEY")
-=======
->>>>>>> clean-main
         system_msg = "You are a marketing persona optimization expert."
         user_prompt = f"""
         Optimize the following marketing persona based on this user request:
@@ -277,11 +255,7 @@ def render_persona_tab():
         3. Reasoning behind the changes
         """
 
-<<<<<<< HEAD
         response = openai.ChatCompletion.create(
-=======
-        response = client.chat.completions.create(
->>>>>>> clean-main
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
