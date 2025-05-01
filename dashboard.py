@@ -32,8 +32,8 @@ def load_agent_info():
             return yaml.safe_load(f)
     return {}
 
-def load_persona(file_name):
-    path = Path(PERSONAS_DIR) / f"{file_name}.txt"
+def load_persona(file_path):
+    path = Path(file_path)
     return path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
 
 def get_prompt_files():
