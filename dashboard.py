@@ -1,8 +1,4 @@
 import streamlit as st
-<<<<<<< HEAD
-import pandas as pd
-=======
->>>>>>> clean-main
 import json
 import yaml
 from pathlib import Path
