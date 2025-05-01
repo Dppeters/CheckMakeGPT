@@ -36,15 +36,9 @@ def load_agent_info():
             return yaml.safe_load(f)
     return {}
 
-<<<<<<< HEAD
 def load_persona(agent_id):
     path = Path(PERSONAS_DIR) / f"{agent_id}.txt"
-    return path.read_text() if path.exists() else ""
-=======
-def load_persona(file_path):
-    path = Path(file_path)
     return path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
->>>>>>> clean-main
 
 def get_prompt_files():
     return [f.stem for f in Path(PROMPTS_DIR).glob("*.txt")]
