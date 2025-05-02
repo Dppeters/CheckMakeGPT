@@ -166,6 +166,9 @@ def render_run_evaluation_tab():
         progress_bar = st.progress(0)
         results = []
 
+        if "evaluation_feedback_list" not in st.session_state:
+            st.session_state["evaluation_feedback_list"] = []
+
         for i, prompt in enumerate(prompts):
             test_result = tester.test_prompt(prompt)
             if test_result["success"]:
@@ -179,6 +182,7 @@ def render_run_evaluation_tab():
                 }
                 st.json(result)
                 results.append(result)
+                st.session_state["evaluation_feedback_list"].append(evaluation.get("feedback", ""))
             else:
                 st.error(f"Failed on prompt '{prompt[:50]}...': {test_result['error']}")
 
@@ -206,6 +210,10 @@ def render_persona_tab():
 
     custom_request = st.text_area("Custom Change Request (optional)", placeholder="e.g., Make it sound more inclusive")
 
+    evaluation_feedback = "\n".join(
+        str(f) for f in st.session_state.get("evaluation_feedback_list", [])
+    )
+
     api_key = st.session_state.get("OPENAI_API_KEY")
     if not api_key:
         st.error("Please enter your OpenAI API key in the Connections tab.")
@@ -218,6 +226,9 @@ def render_persona_tab():
         Review the following persona:
 
         {persona}
+
+        Consider this evaluation feedback:
+        {evaluation_feedback or 'No evaluation feedback available.'}
 
         Suggest specific edits to improve effectiveness, clarity, tone, or alignment with brand. Consider this user request:
         {custom_request or 'N/A'}
@@ -255,7 +266,7 @@ def render_persona_tab():
         3. Reasoning behind the changes
         """
 
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": system_msg},
@@ -266,6 +277,41 @@ def render_persona_tab():
         optimized = response.choices[0].message.content
         st.subheader("Optimized Persona")
         st.text_area("Result", optimized, height=300)
+
+    if st.button("Generate Persona Based on Custom Request"):
+        system_msg = "You are a marketing persona expert."
+        user_prompt = f"""
+        You are a marketing persona expert.
+
+        Here is the current persona:
+        {persona}
+
+        Apply ONLY the following requested change:
+        {custom_request or 'No specific change provided.'}
+
+        IMPORTANT:
+        - Keep everything else in the persona unchanged.
+        - Only apply the specific change described.
+
+        Provide:
+        1. The updated persona with only the requested change applied.
+        """
+
+        response = openai.chat.completions.create(
+            model="gpt-4-turbo",
+            messages=[
+                {"role": "system", "content": system_msg},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.7
+        )
+        new_persona = response.choices[0].message.content
+        st.subheader("Persona Updated with Custom Request")
+        st.text_area("Updated Persona", new_persona, height=300)
+
+    if st.button("Reset Evaluation Feedback"):
+        st.session_state["evaluation_feedback_list"] = []
+        st.success("Evaluation feedback cleared.")
 
 def render_agent_tab():
     st.title("Agent Setup")

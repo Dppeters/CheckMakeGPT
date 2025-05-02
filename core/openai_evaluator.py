@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import streamlit as st
 import openai  # use correct import
 
@@ -38,4 +39,13 @@ class OpenAIScorer:
             temperature=0.0
         )
 
-        return json.loads(result.choices[0].message.content)
+        def extract_json(text):
+            # Remove Markdown code block markers if present
+            text = re.sub(r"```(json)?", "", text, flags=re.IGNORECASE).strip()
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Failed to parse JSON from OpenAI response: {e}\nRaw response:\n{text}")
+
+        content = result.choices[0].message.content
+        return extract_json(content)
