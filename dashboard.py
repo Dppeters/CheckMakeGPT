@@ -40,7 +40,7 @@ def get_prompt_files():
     return [f.stem for f in Path(PROMPTS_DIR).glob("*.txt")]
 
 def load_prompts(filename):
-    with open(Path(PROMPTS_DIR) / f"{filename}.txt", "r") as f:
+    with open(Path(PROMPTS_DIR) / f"{filename}.txt", "r", encoding="utf-8", errors="ignore") as f:
         return [line.strip() for line in f if line.strip()]
 
 def get_criteria_files():
